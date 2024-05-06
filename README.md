@@ -75,6 +75,40 @@ android {
     }
 }
 
+## ListadeCompras/app/src/main/res/layout/activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Declaração de propriedades do XML -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" <!-- Declaração do namespace para atributos definidos pelo aplicativo -->
+    xmlns:tools="http://schemas.android.com/tools" <!-- Declaração do namespace para atributos específicos da ferramenta -->
+    android:layout_width="match_parent" <!-- Largura do layout igual à largura do elemento pai -->
+    android:layout_height="match_parent" <!-- Altura do layout igual à altura do elemento do pai -->
+    android:orientation="vertical" <!-- Orientação vertical para que os elementos fiquem igual uma coluna -->
+    android:padding="16dp" <!-- Preenchimento de 16dp em todas as direções -->
+    tools:context=".MainActivity"> <!-- Contexto da ferramenta -->
+
+    <!-- Campo para entrada de texto -->
+    <EditText
+        android:id="@+id/editText" <!-- ID exclusivo para que possamos usar no código Java -->
+        android:layout_width="match_parent" <!-- Largura total -->
+        android:layout_height="wrap_content" <!-- Altura variável conforme o conteúdo -->
+        android:hint="Nome do produto" /> <!-- Texto exibido apenas no preview -->
+
+    <!-- Botão -->
+    <Button
+        android:id="@+id/button" <!-- ID exclusivo para que possamos usar no código Java -->
+        android:layout_width="match_parent" <!-- Largura total -->
+        android:layout_height="wrap_content" <!-- Altura variável conforme o conteúdo -->
+        android:text="inserir" /> <!-- Texto exibido apenas no preview -->
+
+    <!-- RecyclerView para exibição de uma lista de itens -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView" <!-- ID exclusivo para que possamos usar no código Java -->
+        android:layout_width="wrap_content" <!-- Largura total -->
+        android:layout_height="wrap_content" <!-- Altura variável conforme o conteúdo -->
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" /> <!-- Gerenciador de layout para o RecyclerView -->
+</LinearLayout>
 
 ## ListadeCompras/app/src/main/res/layout/item_layout.xml
 
