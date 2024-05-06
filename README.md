@@ -1,6 +1,6 @@
 # CP2Kotlin
 
-##ListadeCompras/app/build.gradle.kts
+## ListadeCompras/app/build.gradle.kts
 
 plugins {
     // Plugin para aplicativo Android
