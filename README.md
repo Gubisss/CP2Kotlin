@@ -74,3 +74,31 @@ android {
         }
     }
 }
+
+
+## ListadeCompras/app/src/main/res/layout/item_layout.xml
+
+/
+ 
+Esta classe representa um item de lista em um layout LinearLayout.*/
+class ListItemView : View {
+
+    /
+     
+O TextView que exibe o texto do item.*/
+  private val textViewItem: TextView
+
+    /
+     
+Construtor da classe ListItemView.*
+@param context O contexto da aplicação.*/
+constructor(context: Context) : super(context) {// Inicializa o TextView
+    textViewItem = findViewById(R.id.textViewItem)}
+
+    /
+     
+Define o texto do item.*
+@param text O texto a ser exibido.*/
+fun setText(text: String) {
+    textViewItem.text = text}
+}
