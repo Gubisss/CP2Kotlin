@@ -75,6 +75,108 @@ android {
     }
 }
 
+## ListadeCompras/app/src/main/java/carreiras/com/github/listadecompras/ItemsAdapter.kt
+
+package carreiras.com.github.listadecompras
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+
+// Classe que define o adaptador para o RecyclerView
+class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
+
+    // Lista de itens que serão exibidos no RecyclerView
+    private val items = mutableListOf<ItemModel>()
+
+    // Método para adicionar um novo item à lista e notificar o RecyclerView sobre a mudança
+    fun addItem(newItem: ItemModel) {
+        items.add(newItem)
+        notifyDataSetChanged()
+    }
+
+    // Método chamado quando o RecyclerView precisa de uma nova ViewHolder para exibir um item
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        // Infla o layout do item a partir do XML usando LayoutInflater
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
+        // Retorna uma nova instância de ItemViewHolder com a View inflada
+        return ItemViewHolder(view)
+    }
+
+    // Método que retorna o número total de itens na lista
+    override fun getItemCount(): Int = items.size
+
+    // Método chamado pelo RecyclerView para exibir dados em uma posição específica
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+        // Obtém o item da posição fornecida
+        val item = items[position]
+        // Liga os dados do item ao ViewHolder
+        holder.bind(item)
+    }
+
+    // Classe interna que representa a ViewHolder para exibir cada item no RecyclerView
+    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        // Referência ao TextView dentro do layout do item
+        val textView = view.findViewById<TextView>(R.id.textViewItem)
+
+        // Método para ligar os dados do item ao TextView
+        fun bind(item: ItemModel) {
+            textView.text = item.name
+        }
+    }
+}
+
+## ListadeCompras/app/src/main/java/carreiras/com/github/listadecompras/MainActivity.kt
+
+package carreiras.com.github.listadecompras 
+
+import android.annotation.SuppressLint 
+import android.os.Bundle 
+import android.widget.Button 
+import android.widget.EditText 
+import androidx.activity.ComponentActivity 
+import androidx.recyclerview.widget.RecyclerView 
+
+// Define a classe MainActivity que herda de ComponentActivity
+class MainActivity : ComponentActivity() { 
+    // Anotação para remover o aviso de falta de ID inflado
+    @SuppressLint("MissingInflatedId") 
+    // Função de criação da atividade
+    override fun onCreate(savedInstanceState: Bundle?) { 
+    // Chama a implementação da função onCreate na superclasse
+        super.onCreate(savedInstanceState) 
+
+    // Define o layout da atividade a partir do arquivo XML activity_main, que está em res>layout>activity_main
+        setContentView(R.layout.activity_main) 
+
+    // Encontra o RecyclerView no layout, que está em res>id>recyclerView
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView); 
+    // Cria uma instância do ItemsAdapter
+        val itemsAdapter = ItemsAdapter() 
+    // Define o adapter para o RecyclerView
+        recyclerView.adapter = itemsAdapter 
+
+    // Encontra o Button no layout, que está em res>id>button
+        val button = findViewById<Button>(R.id.button) 
+    // Encontra o EditText no layout, que está em res>id>editText
+        val editText = findViewById<EditText>(R.id.editText) 
+
+    // Define o click listener para o botão
+        button.setOnClickListener { 
+    // Cria o objeto ItemModel
+            val item = ItemModel( 
+        // Define o nome do item baseando-se no texto no EditText
+                name = editText.text.toString() 
+            )
+
+    // Adiciona o item ao adapter
+            itemsAdapter.addItem(item) 
+        }
+    }
+}
+
 ## ListadeCompras/app/src/main/res/layout/activity_main.xml
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -112,27 +214,29 @@ android {
 
 ## ListadeCompras/app/src/main/res/layout/item_layout.xml
 
-/
- 
-Esta classe representa um item de lista em um layout LinearLayout.*/
-class ListItemView : View {
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+//layout_width: largura do layout, definida como 'match_parent' para preencher a largura do pai.
+    android:layout_width="match_parent"
+//layout_height: altura do layout, definida como '?android:attr/listPreferredItemHeight' para corresponder à altura preferencial de itens de lista do sistema.
+    android:layout_height="?android:attr/listPreferredItemHeight"
+ //gravity: alinhamento vertical do conteúdo dentro do layout, definido como 'center_vertical' para centralizar o conteúdo verticalmente.
+    android:gravity="center_vertical"
+//padding: preenchimento do layout, definido como '8dp' para adicionar 8 pixels de preenchimento em todas as direções.
+    android:padding="8dp">
+    <TextView
+       //id: identificador único do TextView.
+        android:id="@+id/textViewItem"
+       //layout_width: largura do TextView, definida como 'wrap_content'      para ajustar a largura ao conteúdo do texto.
+        android:layout_width="wrap_content"
+       //layout_height: altura do TextView, definida como 'wrap_content' para ajustar a altura ao conteúdo do texto.
+         android:layout_height="wrap_content"
+        //textSize: tamanho do texto, definido como '18sp' para 18 unidades de escala independente de pixel.
+        android:textSize="18sp"
+//textStyle: estilo do texto, definido como 'bold' para tornar o texto em negrito.
+        android:textStyle="bold"
+//tools:text: texto de exemplo usado apenas durante a pré-visualização do layout no Android Studio, definido como "Novo    Item"./
+  tools:text="Novo    Item" />
 
-    /
-     
-O TextView que exibe o texto do item.*/
-  private val textViewItem: TextView
-
-    /
-     
-Construtor da classe ListItemView.*
-@param context O contexto da aplicação.*/
-constructor(context: Context) : super(context) {// Inicializa o TextView
-    textViewItem = findViewById(R.id.textViewItem)}
-
-    /
-     
-Define o texto do item.*
-@param text O texto a ser exibido.*/
-fun setText(text: String) {
-    textViewItem.text = text}
-}
+</LinearLayout>
