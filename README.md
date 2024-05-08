@@ -213,29 +213,28 @@ class MainActivity : ComponentActivity() {
 
 ## ListadeCompras/app/src/main/res/layout/item_layout.xml
 
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-//layout_width: largura do layout, definida como 'match_parent' para preencher a largura do pai.
-    android:layout_width="match_parent"
-//layout_height: altura do layout, definida como '?android:attr/listPreferredItemHeight' para corresponder à altura preferencial de itens de lista do sistema.
-    android:layout_height="?android:attr/listPreferredItemHeight"
- //gravity: alinhamento vertical do conteúdo dentro do layout, definido como 'center_vertical' para centralizar o conteúdo verticalmente.
-    android:gravity="center_vertical"
-//padding: preenchimento do layout, definido como '8dp' para adicionar 8 pixels de preenchimento em todas as direções.
-    android:padding="8dp">
-    <TextView
-       //id: identificador único do TextView.
-        android:id="@+id/textViewItem"
-       //layout_width: largura do TextView, definida como 'wrap_content'      para ajustar a largura ao conteúdo do texto.
-        android:layout_width="wrap_content"
-       //layout_height: altura do TextView, definida como 'wrap_content' para ajustar a altura ao conteúdo do texto.
-         android:layout_height="wrap_content"
-        //textSize: tamanho do texto, definido como '18sp' para 18 unidades de escala independente de pixel.
-        android:textSize="18sp"
-//textStyle: estilo do texto, definido como 'bold' para tornar o texto em negrito.
-        android:textStyle="bold"
-//tools:text: texto de exemplo usado apenas durante a pré-visualização do layout no Android Studio, definido como "Novo    Item"./
-  tools:text="Novo    Item" />
-
-</LinearLayout>
+        <?xml version="1.0" encoding="utf-8"?>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            //layout_width: largura do layout, definida como 'match_parent' para preencher a largura do pai.
+            android:layout_width="match_parent"
+            //layout_height: altura do layout, definida como '?android:attr/listPreferredItemHeight' para corresponder à altura preferencial de itens de lista do     sistema.
+            android:layout_height="?android:attr/listPreferredItemHeight"
+             //gravity: alinhamento vertical do conteúdo dentro do layout, definido como 'center_vertical' para centralizar o conteúdo verticalmente.
+            android:gravity="center_vertical"
+            //padding: preenchimento do layout, definido como '8dp' para adicionar 8 pixels de preenchimento em todas as direções.
+            android:padding="8dp">
+            <TextView
+               //id: identificador único do TextView.
+                android:id="@+id/textViewItem"
+               //layout_width: largura do TextView, definida como 'wrap_content'      para ajustar a largura ao conteúdo do texto.
+                android:layout_width="wrap_content"
+               //layout_height: altura do TextView, definida como 'wrap_content' para ajustar a altura ao conteúdo do texto.
+                 android:layout_height="wrap_content"
+                //textSize: tamanho do texto, definido como '18sp' para 18 unidades de escala independente de pixel.
+                android:textSize="18sp"
+            //textStyle: estilo do texto, definido como 'bold' para tornar o texto em negrito.
+                android:textStyle="bold"
+            //tools:text: texto de exemplo usado apenas durante a pré-visualização do layout no Android Studio, definido como "Novo    Item"./
+          tools:text="Novo    Item" />
+        </LinearLayout>
