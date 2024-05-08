@@ -1,6 +1,6 @@
-        # CP2Kotlin
+# CP2Kotlin
         
-        ## ListadeCompras/app/build.gradle.kts
+## ListadeCompras/app/build.gradle.kts
         
         plugins {
             // Plugin para aplicativo Android
@@ -74,7 +74,7 @@
             }
         }
         
-        ## ListadeCompras/app/src/main/java/carreiras/com/github/listadecompras/ItemsAdapter.kt
+## ListadeCompras/app/src/main/java/carreiras/com/github/listadecompras/ItemsAdapter.kt
         
         package carreiras.com.github.listadecompras
         
@@ -127,7 +127,7 @@
             }
         }
         
-        ## ListadeCompras/app/src/main/java/carreiras/com/github/listadecompras/MainActivity.kt
+## ListadeCompras/app/src/main/java/carreiras/com/github/listadecompras/MainActivity.kt
         
         package carreiras.com.github.listadecompras 
         
@@ -176,7 +176,7 @@
             }
         }
         
-        ## ListadeCompras/app/src/main/res/layout/activity_main.xml
+## ListadeCompras/app/src/main/res/layout/activity_main.xml
         
         <?xml version="1.0" encoding="utf-8"?>
         <!-- Declaração de propriedades do XML -->
@@ -211,7 +211,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" /> <!-- Gerenciador de layout para o RecyclerView -->
         </LinearLayout>
         
-        ## ListadeCompras/app/src/main/res/layout/item_layout.xml
+## ListadeCompras/app/src/main/res/layout/item_layout.xml
         
                 <?xml version="1.0" encoding="utf-8"?>
                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
