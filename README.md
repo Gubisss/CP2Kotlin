@@ -10,7 +10,6 @@ plugins {
 }
 
 android {
-    // Namespace do aplicativo
     namespace = "carreiras.com.github.listadecompras"
     // Versão do SDK de compilação
     compileSdk = 34
@@ -85,7 +84,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-// Classe que define o adaptador para o RecyclerView
+// Classe que define o adapter para o RecyclerView
 class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
 
     // Lista de itens que serão exibidos no RecyclerView
